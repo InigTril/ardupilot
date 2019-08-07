@@ -678,6 +678,9 @@ void ModeGuided::set_yaw_state(bool use_yaw, float yaw_cd, bool use_yaw_rate, fl
         auto_yaw.set_fixed_yaw(yaw_cd * 0.01f, 0.0f, 0, relative_angle);
     } else if (use_yaw_rate) {
         auto_yaw.set_rate(yaw_rate_cds);
+    } else {
+        // Reinitialise yaw
+        auto_yaw.set_mode_to_default(false);
     }
 }
 
